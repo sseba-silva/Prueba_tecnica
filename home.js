@@ -48,7 +48,7 @@ async function validarFormulario() {
     }
 
     if (materiales.length < 2) {
-        errores.push("Seleccione al menos dos materiales.");
+        errores.push("Debe seleccionar al menos dos materiales para el producto.");
     }
 
     if (!bodega || !sucursal || !moneda) {
@@ -68,7 +68,13 @@ async function validarFormulario() {
 
 function enviarFormulario(datos) {
     let formData = new FormData();
-    Object.keys(datos).forEach(key => formData.append(key, datos[key]));
+    Object.keys(datos).forEach(key => {
+        if (Array.isArray(datos[key])) {
+            datos[key].forEach(value => formData.append(`${key}[]`, value)); // Enviar materiales como array
+        } else {
+            formData.append(key, datos[key]);
+        }
+    });
 
     fetch("api.php?accion=insertar_producto", {
         method: "POST",
@@ -90,8 +96,8 @@ function cargarMonedas() {
         .then(data => {
             let monedaSelect = document.getElementById("moneda");
             monedaSelect.innerHTML = '<option value="">Seleccione una moneda</option>';
-            data.forEach(({nombre,  id_moneda:moneda}) => {
-                monedaSelect.appendChild(new Option(nombre, moneda));
+            data.forEach(({nombre_moneda,  id_moneda:moneda}) => {
+                monedaSelect.appendChild(new Option(nombre_moneda, moneda));
             });
         })
         .catch(error => console.error("Error al cargar monedas:", error));
@@ -103,8 +109,8 @@ function cargarBodegas() {
         .then(data => {
             let bodegaSelect = document.getElementById("bodega");
             bodegaSelect.innerHTML = '<option value="">Seleccione una bodega</option>';
-            data.forEach(bodega => {
-                bodegaSelect.appendChild(new Option(bodega.nombre, bodega.id_bodega));
+            data.forEach(({nombre_bodega,  id_bodega:bodega}) => {
+                bodegaSelect.appendChild(new Option(nombre_bodega, bodega));
             });
         })
         .catch(error => console.error("Error al cargar bodegas:", error));
@@ -116,8 +122,8 @@ function cargarSucursales(bodegaId) {
         .then(data => {
             let sucursalSelect = document.getElementById("sucursal");
             sucursalSelect.innerHTML = '<option value="">Seleccione una sucursal</option>';
-            data.forEach(sucursal => {
-                sucursalSelect.appendChild(new Option(sucursal.nombre, sucursal.id_sucursal));
+            data.forEach(({nombre_sucursal,  id_sucursal:sucursal}) => {
+                sucursalSelect.appendChild(new Option(nombre_sucursal, sucursal));
             });
         })
         .catch(error => console.error("Error al cargar sucursales:", error));
