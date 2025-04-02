@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    <link rel="stylesheet" href="./home.css">
+    <script src="./home.js"></script>
+</head>
+<body>
+    <div class="divPro">
+        <form id="productoForm" class="form"> 
+            <p class="title">Formulario de producto</p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" id="codigo" placeholder="Código alfanumérico (5-15 caracteres)">
+                </div>
+            
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Nombre del producto (2-50 caracteres)">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bodega">Bodega</label>
+                    <select id="bodega">
+                        <option value="">Seleccione una bodega</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="sucursal">Sucursal</label>
+                    <select id="sucursal">
+                        <option value="">Seleccione una sucursal</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="moneda">Moneda</label>
+                    <select id="moneda">
+                        <option value="">Seleccione una moneda</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="text" id="precio" placeholder="Ej: 19.99">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="select">Material del producto (seleccione al menos dos)</label>
+                <div class="checkbox">
+                    <div>
+                        <input type="checkbox" id="plastico" name="material" value="plastico">
+                        <label for="plastico">Plástico</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="metal" name="material" value="metal">
+                        <label for="metal">Metal</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="madera" name="material" value="madera">
+                        <label for="madera">Madera</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="vidrio" name="material" value="vidrio">
+                        <label for="vidrio">Vidrio</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="textil" name="material" value="textil">
+                        <label for="textil">Textil</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" placeholder="Ingrese una descripción detallada del producto (10-1000 caracteres)"></textarea>
+                </div>
+            </div>
+
+            <div class="center">
+                <button type="button" id="guardarProducto" class="button">Guardar Producto</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
