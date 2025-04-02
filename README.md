@@ -2,7 +2,7 @@ Proyecto de Gestión de Productos
 
 Este proyecto es una API desarrollada en PHP 8.2 que permite gestionar productos, bodegas, sucursales, monedas y materiales. La base de datos está en MySQL/MariaDB 10.4.32 y se ejecuta con XAMPP.
 
- Requisitos Previos
+* Requisitos Previos
 
 PHP 8.2 instalado.
 
@@ -10,7 +10,7 @@ XAMPP (para ejecutar MySQL/MariaDB y Apache).
 
 MySQL/MariaDB 10.4.32 (incluido en XAMPP).
 
-Configuración del Proyecto
+* Configuración del Proyecto
 
 Clonar el Repositorio
 
