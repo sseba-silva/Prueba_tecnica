@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Usuario por defecto en XAMPP
 $password = ""; // No tiene contraseña por defecto
-$database = "tienda_productos";
+$database = "productos_db";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
