@@ -31,16 +31,28 @@ async function validarFormulario() {
 
     let materiales = [...document.querySelectorAll("input[type='checkbox']:checked")].map(cb => cb.value);
 
+    if (!codigo ) {
+        errores.push("El código del producto no puede estar en blanco.");
+    }
+
     if (!codigo.match(/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{5,15}$/)) {
-        errores.push("El código debe contener letras y números (5-15 caracteres).");
+        errores.push("El nombre del producto debe tener entre 2 y 50 caracteres.");
     }
 
     if (validar === true){
-        errores.push("El codigo ya existe");
+        errores.push("El código del producto ya está registrado.");
+    }
+
+    if (!nombre) {
+        errores.push("El nombre no puede estar en blanco");
     }
 
     if (nombre.length < 2 || nombre.length > 50) {
         errores.push("El nombre debe tener entre 2 y 50 caracteres.");
+    }
+
+    if (!precio) {
+        errores.push("El precio no puede estar en blanco.");
     }
 
     if (!precio.match(/^(\d+(\.\d{1,2})?)$/)) {
@@ -51,8 +63,20 @@ async function validarFormulario() {
         errores.push("Debe seleccionar al menos dos materiales para el producto.");
     }
 
-    if (!bodega || !sucursal || !moneda) {
-        errores.push("Debe seleccionar bodega, sucursal y moneda.");
+    if (!bodega ) {
+        errores.push("Debe seleccionar una bodega");
+    }
+
+    if (!sucursal ) {
+        errores.push("Debe seleccionar una sucursal para la bodega seleccionada");
+    }
+
+    if (!moneda ) {
+        errores.push("Debe seleccionar una moneda para el producto.");
+    }
+
+    if (!descripcion) {
+        errores.push("La descripción del producto no puede estar en blanco.");
     }
 
     if (descripcion.length < 10 || descripcion.length > 1000) {
