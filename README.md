@@ -16,11 +16,11 @@ Clonar el Repositorio
 
 Abre una terminal y clona el repositorio:
 
-    git clone https://github.com/sseba-silva/Prueba-tecnica.git
+    git clone https://github.com/sseba-silva/Prueba_tecnica.git
 
 Después de clonar, accede al proyecto:
 
-    cd Prueba-tecnica
+    cd Prueba_tecnica
 
 Configurar el Servidor Local
 
