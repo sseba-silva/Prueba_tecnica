@@ -119,7 +119,6 @@ function cargarMonedas() {
         .then(response => response.json())
         .then(data => {
             let monedaSelect = document.getElementById("moneda");
-            monedaSelect.innerHTML = '<option value="">Seleccione una moneda</option>';
             data.forEach(({nombre_moneda,  id_moneda:moneda}) => {
                 monedaSelect.appendChild(new Option(nombre_moneda, moneda));
             });
@@ -132,7 +131,7 @@ function cargarBodegas() {
         .then(response => response.json())
         .then(data => {
             let bodegaSelect = document.getElementById("bodega");
-            bodegaSelect.innerHTML = '<option value="">Seleccione una bodega</option>';
+            bodegaSelect.innerHTML = '<option value=""></option>';
             data.forEach(({nombre_bodega,  id_bodega:bodega}) => {
                 bodegaSelect.appendChild(new Option(nombre_bodega, bodega));
             });
@@ -145,7 +144,7 @@ function cargarSucursales(bodegaId) {
         .then(response => response.json())
         .then(data => {
             let sucursalSelect = document.getElementById("sucursal");
-            sucursalSelect.innerHTML = '<option value="">Seleccione una sucursal</option>';
+            sucursalSelect.innerHTML = '<option value=""></option>';
             data.forEach(({nombre_sucursal,  id_sucursal:sucursal}) => {
                 sucursalSelect.appendChild(new Option(nombre_sucursal, sucursal));
             });
@@ -154,7 +153,7 @@ function cargarSucursales(bodegaId) {
 }
 
 function limpiarOpciones(selectId) {
-    document.getElementById(selectId).innerHTML = '<option value="">Seleccione una opción</option>';
+    document.getElementById(selectId).innerHTML = '<option value=""></option>';
 }
 
 async function validarCodigo(codigo) {
